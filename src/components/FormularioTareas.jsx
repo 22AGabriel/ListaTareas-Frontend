@@ -23,11 +23,12 @@ const FormularioTareas = () => {
                     placeholder='Tarea...' 
                     onChange={(e) => setTarea(e.target.value)}
                     value={tarea}
+                    minLength={5}
                     />
                     <Button variant='success' type='submit'>Agregar</Button>
                 </Form.Group>
             </Form>
-            <ListaTarea></ListaTarea>
+            <ListaTarea arregloTareas={arregloTareas}></ListaTarea>
         </>
     );
 };
