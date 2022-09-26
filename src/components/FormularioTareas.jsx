@@ -12,6 +12,10 @@ const FormularioTareas = () => {
         setTarea('');
     }
 
+    const borrarTarea = (nombre) => {
+        let arregloModificado = arregloTareas.filter((item) => item !== nombre);
+        setArregloTareas(arregloModificado);
+    }
 
     return (
         <>
@@ -28,7 +32,7 @@ const FormularioTareas = () => {
                     <Button variant='success' type='submit'>Agregar</Button>
                 </Form.Group>
             </Form>
-            <ListaTarea arregloTareas={arregloTareas}></ListaTarea>
+            <ListaTarea arregloTareas={arregloTareas} borrarTarea={borrarTarea}></ListaTarea>
         </>
     );
 };
