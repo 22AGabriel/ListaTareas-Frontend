@@ -1,0 +1,16 @@
+{
+  "tareas": [
+    {
+      "nombreTarea": "Dormir",
+      "id": 1
+    },
+    {
+      "nombreTarea": "Comer",
+      "id": 2
+    },
+    {
+      "nombreTarea": "Ver tele",
+      "id": 3
+    }
+  ]
+}

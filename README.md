@@ -22,4 +22,8 @@ Proba la demo de la lista de tareas del siguiente [link](https://react-listadeta
 
 ## Autor
 
-Azubel, Cristian Gabriel
+- Azubel, Cristian Gabriel
+
+## Comandos para ejecutar JSON-Server
+
+`json-server --watch db.json --port 3004`
