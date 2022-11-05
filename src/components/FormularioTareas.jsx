@@ -12,11 +12,6 @@ const FormularioTareas = () => {
     reset,
   } = useForm();
 
-  const borrarTarea = (nombre) => {
-    // let arregloModificado = arregloTareas.filter((item) => item !== nombre);
-    // setArregloTareas(arregloModificado);
-  };
-
   const onSubmit = (data) => {
     crearTareaAPI(data).then((respuesta) => {
       if(respuesta.status === 201){
@@ -54,7 +49,7 @@ const FormularioTareas = () => {
           </Form.Text>
         </Form.Group>
       </Form>
-      <ListaTarea borrarTarea={borrarTarea}></ListaTarea>
+      <ListaTarea></ListaTarea>
     </>
   );
 };
