@@ -1,15 +1,25 @@
-import React from 'react';
-import { ListGroup } from 'react-bootstrap';
-import ItemTarea from './ItemTarea';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { ListGroup } from "react-bootstrap";
+import { consultarAPI } from './helpers/queries';
+import ItemTarea from "./ItemTarea";
 
-const ListaTarea = ({arregloTareas, borrarTarea}) => {
-    return (
-        <ListGroup>
-            {
-              arregloTareas.map((tarea, posicion)=><ItemTarea key={posicion} nombreTarea={tarea} borrarTarea={borrarTarea}></ItemTarea>)
-            }
-        </ListGroup>
-    );
+const ListaTarea = ({ borrarTarea }) => {
+  const [tareas, setTareas] = useState([]);
+
+  useEffect(() => {
+    consultarAPI().then((respuesta) => {
+      setTareas(respuesta);
+    });
+  }, [tareas]);
+
+  return (
+    <ListGroup>
+    {
+      tareas.map((tarea) => <ItemTarea key={tarea.id} tarea={tarea} borrarTarea={borrarTarea}></ItemTarea>)
+    }
+    </ListGroup>
+  );
 };
 
 export default ListaTarea;
