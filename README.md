@@ -15,3 +15,7 @@ Ejercicio N° 4 de TP de ejercicios de React del curso FullStack en RollingCodeS
 ## Autor
 
 - Azubel, Cristian Gabriel
+
+## Comandos para ejecutar JSON-Server
+
+`json-server --watch db.json --port 3004`
