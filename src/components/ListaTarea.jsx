@@ -4,19 +4,18 @@ import { ListGroup } from 'react-bootstrap';
 import { consultarAPI } from './helpers/queries';
 import ItemTarea from './ItemTarea';
 
-const ListaTarea = () => {
-  const [tareas, setTareas] = useState([]);
+const ListaTarea = ({tareas, setTareas}) => {
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
       setTareas(respuesta);
     })
-  }, [tareas])
+  }, [])
 
     return (
         <ListGroup>
           {
-            tareas.map((tarea) => <ItemTarea key={tarea.id} tarea={tarea}></ItemTarea>)
+            tareas.map((tarea) => <ItemTarea key={tarea.id} tarea={tarea} setTareas={setTareas}></ItemTarea>)
           }
         </ListGroup>
     );

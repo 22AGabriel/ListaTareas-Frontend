@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, ListGroup } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { borrarTareaAPI } from "./helpers/queries";
+import { borrarTareaAPI, consultarAPI } from "./helpers/queries";
 
-const ItemTarea = ({ tarea }) => {
+const ItemTarea = ({ tarea, setTareas }) => {
   const borrarTarea = () => {
     Swal.fire({
       title: "Eliminar Producto",
@@ -23,6 +23,9 @@ const ItemTarea = ({ tarea }) => {
               "La tarea fue eliminada correctamente",
               "success"
             );
+            consultarAPI().then((respuesta) => {
+                setTareas(respuesta);
+              })
           } else {
             Swal.fire(
               "Ocurrió un error",

@@ -1,10 +1,13 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { crearTareaAPI } from "./helpers/queries";
+import { consultarAPI, crearTareaAPI } from "./helpers/queries";
 import ListaTarea from "./ListaTarea";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const FormularioTareas = () => {
+  const [tareas, setTareas] = useState([]);
+
   const {
     register,
     handleSubmit,
@@ -17,6 +20,9 @@ const FormularioTareas = () => {
       if(respuesta.status === 201){
         Swal.fire("Tarea creada", "La tarea se creó correctamente", "success");
         reset();
+        consultarAPI().then((respuesta) => {
+            setTareas(respuesta);
+          })
       } else {
         Swal.fire("Ocurrió un error", "Inténtelo nuevamente en unos minutos", "error");
       }
@@ -49,7 +55,7 @@ const FormularioTareas = () => {
           </Form.Text>
         </Form.Group>
       </Form>
-      <ListaTarea></ListaTarea>
+      <ListaTarea tareas={tareas} setTareas={setTareas}></ListaTarea>
     </>
   );
 };
