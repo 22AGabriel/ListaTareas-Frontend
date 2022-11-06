@@ -6,8 +6,8 @@ import { borrarTareaAPI, consultarAPI } from "./helpers/queries";
 const ItemTarea = ({ tarea, setTareas }) => {
   const borrarTarea = () => {
     Swal.fire({
-      title: "Eliminar Producto",
-      text: "¿Estás seguro de eliminar este producto?",
+      title: "Eliminar tarea",
+      text: "¿Estás seguro de eliminar esta tarea?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#198754",
@@ -16,7 +16,7 @@ const ItemTarea = ({ tarea, setTareas }) => {
       CancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        borrarTareaAPI(tarea.id).then((respuesta) => {
+        borrarTareaAPI(tarea._id).then((respuesta) => {
           if (respuesta.status === 200){
             Swal.fire(
               "Tarea eliminada",

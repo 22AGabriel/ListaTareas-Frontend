@@ -17,13 +17,15 @@ Proba la demo de la lista de tareas del siguiente [link](https://react-listadeta
 
 ## Librerias externas
 
-- React-Bootstrap
-- Bootstrap
+- React-Bootstrap v2.5
+- Bootstrap v5.2
+- React-hook-form v6
+- SweetAlert2 v11.4.
 
 ## Autor
 
 - Azubel, Cristian Gabriel
 
-## Comandos para ejecutar JSON-Server
+<!-- ## Comandos para ejecutar JSON-Server
 
-`json-server --watch db.json --port 3004`
+`json-server --watch db.json --port 3004` -->
